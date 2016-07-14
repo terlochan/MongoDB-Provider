@@ -1,0 +1,79 @@
+// MongoDB Server Provider MOF
+
+// MongoDB Sever 
+// -------------------------------------------------------
+[  Version ( "1.0.0" ),
+   Description ( "MongoDB Server Information" )
+]
+class MongoDB_Server 
+{
+   [ Key,
+     Description ( "Server hostname" ) ]
+   string Hostname;
+
+   [ Description ( "Is server Master" ) ]
+   boolean IsMaster;
+
+   //[ Description ( "Time on Server" ) ]
+   //string ServerLocalTime;
+ 
+   [ Description ( "Version of Server" ) ]
+   string ServerVersion;
+};
+
+// MongoDB Statistics Data
+// --------------------------------------------------------
+[  Version ( "1.0.0" ),
+   Description ( "MongoDB Server Statistical Information" )
+]
+class MongoDB_Server_Statistics
+{
+   [ Key,
+     Description ( "Name of Server" ) ]
+   string HostName;
+
+   [Description ( "Process of the Server" ) ]
+   string ProcessName;
+
+   //[ Description ( "Toatal space used by all databases" ) ]
+   //Uint8 sizeOnDisk;
+
+   [ Description ( "Server Uptime in seconds" ) ]
+   uint64 UpTimeinSeconds;
+
+   [ Description ( "Number of regular assertions raised" ) ]
+   uint32 RegularAssert;
+
+   [ Description ( "Number of warning raised" ) ]
+   uint32 WarningAssert;
+
+   [ Description ( "Number of message assertions raised" ) ]
+   uint32 MessageAssert;
+
+   [ Description ( "Number of user assertions raised(disk space issues etc.)" ) ]
+   uint32 UserAssert;
+
+   [ Description ( "Rollover counter for assertions raised" ) ]
+   uint32 RolloverAssert;
+
+   [ Description ( "Number of current connections from the client to the server" ) ]
+   uint32 CurrentConnections;
+};
+
+// MongoDB Server Database 
+// --------------------------------------------------------
+[  Version ( "1.0.0" ),
+   Description ( "MongoDB Server Database Information" )
+]
+class MongoDB_Server_Database
+{
+   [ Key,
+     Description ( "Name of the Database" ) ]
+   string DatabaseName;
+
+   [ Description ( "Number of Collections a database contains" ) ]
+   uint64 NumberOfCollections;
+
+   [ Description ( "Space used (in bytes) by the MongoDB database" ) ]
+   uint64 DiskSpaceInbytes;
+};
